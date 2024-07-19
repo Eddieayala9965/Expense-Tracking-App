@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = () => (
   <nav>
     <ul>
       <li>
@@ -10,6 +10,7 @@ const Navbar = () => {
         <Link to="/add-expense">Add Expense</Link>
       </li>
     </ul>
-  </nav>;
-};
+  </nav>
+);
+
 export default Navbar;

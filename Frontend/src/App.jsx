@@ -1,18 +1,30 @@
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import AddExpense from "./pages/AddExpense";
 
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/add-expense" element={<AddExpense />} />
-      </Routes>
-    </Router>
-  );
-}
+const App = () => (
+  <Router>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Layout>
+            <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path="/add-expense"
+        element={
+          <Layout>
+            <AddExpense />
+          </Layout>
+        }
+      />
+    </Routes>
+  </Router>
+);
 
 export default App;
