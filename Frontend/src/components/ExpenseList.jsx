@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import { getExpenses } from "../services/api";
 
 const ExpenseList = () => {
   const [expenses, setExpenses] = useState([]);
 
   useEffect(() => {
     const fetchExpenses = async () => {
-      const response = await axios.get("/expenses");
-      if (response.data) {
-        console.log("No data");
+      try {
+        const response = await getExpenses();
+        setExpenses(response.data);
+      } catch (error) {
+        console.error("Error fetching expenses:", error);
       }
-      setExpenses(response.data);
     };
     fetchExpenses();
   }, []);

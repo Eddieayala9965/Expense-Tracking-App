@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import { createExpense } from "../services/api";
 
 const ExpenseForm = () => {
   const [amount, setAmount] = useState("");
@@ -8,18 +8,15 @@ const ExpenseForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newExpense = { amount, description, date };
-    await axios.post("/expenses", newExpense);
-    setAmount("");
-    setDescription("");
-    setDate("");
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "amount") setAmount(value);
-    if (name === "description") setDescription(value);
-    if (name === "date") setDate(value);
+    const newExpense = { amount: parseFloat(amount), description, date };
+    try {
+      await createExpense(newExpense);
+      setAmount("");
+      setDescription("");
+      setDate("");
+    } catch (error) {
+      console.error("Error creating expense:", error);
+    }
   };
 
   return (
@@ -29,8 +26,7 @@ const ExpenseForm = () => {
         <input
           type="number"
           value={amount}
-          name="amount"
-          onChange={handleChange}
+          onChange={(e) => setAmount(e.target.value)}
           required
         />
       </div>
@@ -39,8 +35,7 @@ const ExpenseForm = () => {
         <input
           type="text"
           value={description}
-          name="description"
-          onChange={handleChange}
+          onChange={(e) => setDescription(e.target.value)}
           required
         />
       </div>
@@ -49,8 +44,7 @@ const ExpenseForm = () => {
         <input
           type="date"
           value={date}
-          name="date"
-          onChange={handleChange}
+          onChange={(e) => setDate(e.target.value)}
           required
         />
       </div>
