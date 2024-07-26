@@ -9,3 +9,5 @@ class Expense(Base):
     description = Column (String, index=True)
     date = Column(DateTime)
     
+    
+    
