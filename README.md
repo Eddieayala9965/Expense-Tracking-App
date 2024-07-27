@@ -38,3 +38,7 @@ A simple expense tracking application built with FastAPI and React. This applica
 ### Notifications
 
 - Snackbar notifications will appear for expense creation, updates, and deletions.
+
+## Video Demo
+
+[![Watch the video]](https://drive.google.com/file/d/11PZD-wGpBFvIaJAi6_7jupqAEmFfyHqa/view?usp=sharing)
