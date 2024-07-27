@@ -41,4 +41,4 @@ A simple expense tracking application built with FastAPI and React. This applica
 
 ## Video Demo
 
-[![Watch the video]](https://drive.google.com/file/d/11PZD-wGpBFvIaJAi6_7jupqAEmFfyHqa/view?usp=sharing)
+[![Watch the video](https://github.com/Eddieayala9965/Expense-Tracking-App/blob/773a0787c1bf9ebb642dde04b0c54091ad7b42c5/thumbnail.png)](https://drive.google.com/file/d/11PZD-wGpBFvIaJAi6_7jupqAEmFfyHqa/view?usp=sharing)
